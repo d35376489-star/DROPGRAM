@@ -1,3 +1,12 @@
+
+      - name: Clean cache
+        run: |
+          chmod +x gradlew
+          ./gradlew clean
+          rm -rf TMessagesProj/jni/ffmpeg/build_android/work
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-parallel --no-daemon -Dorg.gradle.workers.max=1
 - name: Build Debug APK
   run: ./gradlew assembleDebug --no-parallel --no-daemon -Dorg.gradle.workers.max=1
 
