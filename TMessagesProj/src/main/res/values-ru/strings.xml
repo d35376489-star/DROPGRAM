@@ -174,7 +174,7 @@
     <string name="HideStoriesInArchive">Скрыть истории в архиве</string>
     <string name="ExtractMediaFromPreview">Отправлять медиа из превью ссылки как вложение</string>
 
-    <string name="AppName">Fork Client</string>
+    <string name="AppName">DropGram</string>
     <string name="AppNameBeta">Fork Client</string>
     <string name="LanguageName">Русский</string>
     <string name="English">Английский</string>
