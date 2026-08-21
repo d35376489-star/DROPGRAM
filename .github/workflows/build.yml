@@ -30,3 +30,4 @@ jobs:
         with:
           name: mygram-debug-apk
           path: TMessagesProj/build/outputs/apk/debug/*.apk
+Add GitHub Actions build
