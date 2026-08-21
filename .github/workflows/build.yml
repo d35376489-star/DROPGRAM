@@ -1,4 +1,5 @@
-name: Android Build
+- name: Build Debug APK
+  run: ./gradlew assembleDebug --no-parallel --no-daemon -Dorg.gradle.workers.max=1
 
 on:
   push:
