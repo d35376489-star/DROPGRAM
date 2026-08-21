@@ -251,7 +251,7 @@ android {
         }
     }
 
-    namespace 'org.telegram.messenger'
+    namespace 'org.dropgram.messenger'
 }
 
 
