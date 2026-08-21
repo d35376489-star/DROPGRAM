@@ -29,23 +29,19 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install NDK 23.2.8568313 and remove NDK 27
+      - name: Install NDK 23 and replace NDK 27
         run: |
           sdkmanager "ndk;23.2.8568313"
-          rm -rf $ANDROID_SDK_ROOT/ndk/27.2.12479018 || true
+          rm -rf $ANDROID_SDK_ROOT/ndk/27.2.12479018
+          ln -s $ANDROID_SDK_ROOT/ndk/23.2.8568313 $ANDROID_SDK_ROOT/ndk/27.2.12479018
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
           echo "ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
-          echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
 
       - name: Grant execute permission
         run: chmod +x gradlew
 
       - name: Build Debug APK
-        run: |
-          export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/23.2.8568313
-          export ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/23.2.8568313
-          ./gradlew assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
